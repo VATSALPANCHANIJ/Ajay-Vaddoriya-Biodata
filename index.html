@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Glass Biodata - Panchani Vatsal</title>
+
+    <!-- Favicon (change if you want) -->
+    <link rel="icon" type="image/x-icon"
+        href="https://lh3.googleusercontent.com/pw/AP1GczNXpQOjIRYBIHaso1NqjFo0Vv5EvReLCCJov5IqccmRctfELY3xsvVLBGbwND8pSl_L4fHLeVSMOHUcmebNLhyYekBIH55GCmIjN4ylClW_Ysc8olp2X0v_Oxkt9gdeUytkXlhzEqRZsI9zFTVPJfN9GA=w651-h869-s-no-gm?authuser=0">
+
+    <!-- Animate.css + WOW.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* warm earthy theme based on your photo */
+            --primary: #166534;
+            /* deep leaf green */
+            --primary-soft: #4ade80;
+            /* soft light green */
+            --accent: #f59e0b;
+            /* warm mustard / orange */
+            --bg-gradient-start: #041814;
+            /* very dark green */
+            --bg-gradient-end: #0f2f23;
+            /* forest green */
+            --glass-bg: rgba(5, 30, 21, 0.88);
+            /* dark green glass */
+            --glass-border: rgba(74, 222, 128, 0.6);
+            /* soft green border */
+            --text-main: #e5f9f1;
+            /* light mint text */
+            --text-muted: #a7f3d0;
+            /* softer mint */
+            --text-strong: #f9fafb;
+            /* almost white */
+            --shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.85);
+        }
+
+
+
+        /* ---------- LANGUAGE HANDLING ---------- */
+
+        /* fonts */
+        .lang-en {
+            font-family: "Lexend", sans-serif, -apple-system, "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .lang-gu {
+            font-family: "Baloo Bhai 2", sans-serif, -apple-system, "Baloo Bhai 2", sans-serif;
+            font-weight: 500;
+        }
+
+        /* visibility: default = English */
+        [data-lang="en"] .lang-en {
+            display: inline;
+        }
+
+        [data-lang="en"] .lang-gu {
+            display: none;
+        }
+
+        /* when switch ON => Gujarati */
+        [data-lang="gu"] .lang-en {
+            display: none;
+        }
+
+        [data-lang="gu"] .lang-gu {
+            display: inline;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 12px;
+
+            /* background inspired by your photo:
+     top = warm mustard, bottom = deep green foliage  */
+            background:
+                radial-gradient(circle at top, #facc6b 0, transparent 55%),
+                /* mustard/yellow glow */
+                radial-gradient(circle at bottom, #166534 0, transparent 55%),
+                /* deep green */
+                linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+
+            color: var(--text-main);
+        }
+
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 470px;
+        }
+
+        .card-shell {
+            position: relative;
+            border-radius: 28px;
+            padding: 18px 14px 20px;
+            background: linear-gradient(135deg, rgba(148, 163, 184, 0.06), rgba(15, 23, 42, 0.9));
+            box-shadow: var(--shadow-strong);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            overflow: hidden;
+        }
+
+        /* subtle glow behind */
+        .card-shell::before {
+            content: "";
+            position: absolute;
+            inset: -30%;
+            background:
+                radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.12), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.12), transparent 50%);
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Profile / hero section */
+        .hero-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .avatar-ring {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            padding: 3px;
+            background:
+                conic-gradient(from 210deg,
+                    var(--accent),
+                    var(--primary-soft),
+                    var(--primary),
+                    var(--accent));
+
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(15, 23, 42, 0.9);
+            background: #020617;
+        }
+
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .name-main {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-strong);
+            line-height: 1.3;
+        }
+
+        .role-main {
+            margin-top: 4px;
+            font-size: 0.96rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .tag-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 64, 175, 0.7));
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: #e5e7eb;
+            margin-top: 6px;
+        }
+
+        .tag-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.9);
+        }
+
+        /* Language switch + top actions */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: center;
+            margin: 12px 2px 8px;
+            flex-wrap: wrap;
+        }
+
+        .lang-switch-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Uiverse switch (modified) */
+        .switch {
+            font-size: 0.76rem;
+            position: relative;
+            display: inline-block;
+            width: 8.6em;
+            height: 2.4em;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .switch .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #020617;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            color: #e5e7eb;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.8);
+        }
+
+        .switch .title {
+            position: absolute;
+            top: 50%;
+            left: 62%;
+            transform: translate(-50%, -50%);
+            font-weight: 500;
+            user-select: none;
+            transition: all 0.35s ease;
+        }
+
+        .switch .ball {
+            position: absolute;
+            top: 50%;
+            left: 3px;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e5e7eb, #fefce8);
+            box-shadow:
+                0 6px 14px rgba(15, 23, 42, 0.8),
+                0 0 0 3px rgba(15, 23, 42, 0.9);
+            transition: all 0.35s ease;
+        }
+
+        .switch .ball .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1f2937;
+            font-size: 0.8rem;
+        }
+
+        .switch input:checked+.slider {
+            background: linear-gradient(135deg, #0b1120, #075985);
+            border-color: rgba(96, 165, 250, 0.85);
+        }
+
+        .switch input:checked+.slider .title {
+            left: 32%;
+        }
+
+        .switch input:checked+.slider .ball {
+            left: calc(100% - 35px);
+            transform: translateY(-50%) rotate(360deg);
+            box-shadow:
+                0 0 0 3px rgba(56, 189, 248, 0.7),
+                0 10px 20px rgba(15, 23, 42, 0.9);
+        }
+
+        /* small action pill (optional) */
+        .action-pill {
+            font-size: 0.74rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+        }
+
+        /* Sections / glass panels */
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .glass-section {
+            background: var(--glass-bg);
+            border-radius: 18px;
+            padding: 10px 12px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+        }
+
+        .section-title {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+            gap: 6px;
+        }
+
+        .label {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .value {
+            text-align: right;
+            color: #e5e7eb;
+        }
+
+        .value span,
+        .label span {
+            display: inline-block;
+        }
+
+        .para {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: #e5e7eb;
+        }
+
+        .subtext {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .address {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #e5e7eb;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Photo gallery */
+        .photo-section-title {
+            margin-top: 8px;
+        }
+
+        .photo-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .photo-card {
+            flex: 1;
+            position: relative;
+            border-radius: 18px;
+            padding: 6px;
+            background: radial-gradient(circle at top, rgba(248, 250, 252, 0.08), transparent 60%),
+                rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+            overflow: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .photo-card:hover img {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+        }
+
+        .photo-tag {
+            position: absolute;
+            bottom: 6px;
+            left: 10px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e5e7eb;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+        }
+
+        /* FULLSCREEN LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.94);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        #lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 16px;
+            transition: transform 0.1s ease-out;
+            touch-action: none;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+        }
+
+        @media (max-width: 480px) {
+            .card-shell {
+                padding: 14px 12px 16px;
+            }
+
+            .name-main {
+                font-size: 1.4rem;
+            }
+
+            .photo-grid {
+                flex-direction: row;
+            }
+        }
+
+        /* Language visibility (again for safety) */
+        .lang-gu {
+            display: none;
+        }
+
+        [data-lang="gu"] .lang-en {
+            display: none;
+        }
+
+        [data-lang="gu"] .lang-gu {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <main class="card-shell wow animate__animated animate__fadeInUp" id="biodata-card">
+            <div class="card-inner">
+
+                <!-- HERO / AVATAR -->
+                <section class="hero-top wow animate__animated animate__fadeInDown" data-wow-delay="0.1s">
+                    <div class="avatar-ring">
+                        <div class="avatar-inner">
+                            <!-- CHANGE PROFILE PHOTO HERE -->
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczM95sEjWfw2ADUCdq_5K2mi5GudvlCZHQF91HsjPMiuHpwT1zJok4vM5Jsy8joSgWPEp0M_1NbVgoUTr83x3xZBFSWvO9hejnd7CMW3O47ODPgj4EsgwzC2y_e95yHsNu_CECv0HtKp9lrzjA9OqC4y3w=w939-h869-s-no-gm?authuser=0"
+                                alt="Profile Photo">
+                        </div>
+                    </div>
+
+                    <div class="name-main">
+                        <span class="lang lang-en">Ajay Atulbhai Vaddoriya</span>
+                        <span class="lang lang-gu">અજય અતુલભાઈ વાડોરીયા</span>
+                    </div>
+
+                    <div class="role-main">
+                        <span class="lang lang-en">Diamond Manufacturing</span>
+                        <span class="lang lang-gu">ડાયમંડ મેન્યુફેક્ચરિંગ</span>
+                    </div>
+
+                    <div class="tag-badge">
+                        <span class="tag-dot"></span>
+                        <span class="lang lang-en">Biodata</span>
+                        <span class="lang lang-gu">બાયોડેટા</span>
+                    </div>
+                </section>
+
+                <!-- TOP BAR: LANGUAGE SWITCH -->
+                <div class="top-bar wow animate__animated animate__fadeInUp" data-wow-delay="0.15s">
+                    <div class="lang-switch-container">
+                        <span class="lang-label">
+                            <span class="lang lang-en">Language</span>
+                            <span class="lang lang-gu">ભાષા</span>
+                        </span>
+
+                        <label class="switch">
+                            <input type="checkbox" id="langToggle" onchange="toggleLanguage(this)">
+                            <span class="slider">
+                                <span class="title" id="langTitle">English</span>
+                                <span class="ball">
+                                    <span class="icon">અ</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- SECTIONS -->
+                <div class="section-grid">
+
+                    <!-- PERSONAL DETAILS -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="section-title">
+                            <span class="lang lang-en">Personal Details</span>
+                            <span class="lang lang-gu">વ્યક્તિગત વિગતો</span>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Date of Birth</span>
+                                <span class="lang lang-gu">જન્મ તારીખ</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">22-07-2003</span>
+                                <span class="lang lang-gu">૨૨-૦૭-૨૦૦૩</span>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Height &amp; Weight</span>
+                                <span class="lang lang-gu">ઊંચાઈ &amp; વજન</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">5.3 ft, 62 kg</span>
+                                <span class="lang lang-gu">૫.૩ ફૂટ, ૬૨ કિલો</span>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Mobile</span>
+                                <span class="lang lang-gu">મોબાઇલ</span>
+                            </div>
+                            <div class="value">
+                                <a href="tel:+917487006211" style="text-decoration:none; color:inherit;">
+                                    <span class="lang lang-en">78618 89797</span>
+                                    <span class="lang lang-gu">૭૮૬૧૮ ૮૯૭૯૭</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- EDUCATION -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.25s">
+                        <div class="section-title">
+                            <span class="lang lang-en">Education</span>
+                            <span class="lang lang-gu">શિક્ષણ</span>
+                        </div>
+
+                        <p class="para">
+                            <span class="label">
+                                <span class="lang lang-en">Highest Qualification:</span>
+                                <span class="lang lang-gu">ઉચ્ચતમ લાયકાત:</span>
+                            </span>
+                            <br>
+                            <span class="value">
+                                <span class="lang lang-en">BCA (Bachelor of Computer Applications).</span>
+                                <span class="lang lang-gu">બી.સી.એ (BCA) – બેચલર ઓફ કમ્પ્યુટર એપ્લિકેશન્સ.</span>
+                            </span>
+                        </p>
+                    </section>
+
+                    <!-- FAMILY DETAILS -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="section-title">
+                            <span class="lang lang-en">Family Details</span>
+                            <span class="lang lang-gu">કુટુંબની વિગતો</span>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Father</span>
+                                <span class="lang lang-gu">પિતાનું નામ</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">Atulbhai Bhurabhai Vaddoriya</span>
+                                <span class="lang lang-gu">અતુલભાઈ ભુરાભાઈ વાડોરીયા</span>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Father's Mobile</span>
+                                <span class="lang lang-gu">પિતાનો મોબાઇલ</span>
+                            </div>
+                            <div class="value">
+                                <a href="tel:+918141449721" style="text-decoration:none; color:inherit;">
+                                    <span class="lang lang-en">98253 61203</span>
+                                    <span class="lang lang-gu">૯૮૨૫૩ ૬૧૨૦૩</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Profession</span>
+                                <span class="lang lang-gu">વ્યવસાય</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">Diamond Business</span>
+                                <span class="lang lang-gu">ડાયમંડનો વ્યવસાય,</span>
+                            </div>
+                        </div>
+
+                        <div class="info-row" style="margin-top:6px;">
+                            <div class="label">
+                                <span class="lang lang-en">Mother</span>
+                                <span class="lang lang-gu">માતાનું નામ</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">Dakshaben Atulbhai Vaddoriya</span>
+                                <span class="lang lang-gu">દક્ષાબેન અતુલભાઈ વાડોરીયા</span>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="label">
+                                <span class="lang lang-en">Sister</span>
+                                <span class="lang lang-gu">બહેન</span>
+                            </div>
+                            <div class="value">
+                                <span class="lang lang-en">Astha Atulbhai Vaddoriya</span>
+                                <span class="lang lang-gu">આસ્થા અતુલભાઈ વાડોરીયા</span>
+                            </div>
+                        </div>
+                        <!-- <p class="para">
+                            <span class="label">
+                                <span class="lang lang-en">Native Place:</span>
+                                <span class="lang lang-gu">મૂળ ગામ:</span>
+                            </span>
+                            <br>
+                            <a href="https://maps.app.goo.gl/VHftHB8N6Re3BxA67" target="_blank"
+                                style="text-decoration:none;">
+                                <span class="lang lang-en">Fachariya, Gariyadhar, Bhavnagar.</span>
+                                <span class="lang lang-gu">ફાચરિયા, ગારીયાધાર, ભાવનગર.</span>
+                            </a>
+                        </p> -->
+                    </section>
+
+                    <!-- NATIVE & MATERNAL -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.35s">
+                        <div class="section-title">
+                            <span class="lang lang-en">Maternal Relatives:</span>
+                            <span class="lang lang-gu">મામેરા સંબંધીઓ:</span>
+                        </div>
+                        <p class="para" style="margin-top:6px;">
+                            <span class="lang lang-en">
+                                Jagdishbhai Bhikhabhai Vasani
+                            </span>
+                            <span class="lang lang-gu">
+                                જગદીશભાઈ ભીખાભાઈ વસાણી
+                            </span>
+                        </p>
+
+                        <p class="subtext">
+                            <a href="https://maps.app.goo.gl/sPgQA2nyZq7MR4SJ6" target="_blank"
+                                style="text-decoration:none;">
+                                <span class="lang lang-en">Maternal native: Ramgadh (Bhutdi)</span>
+                                <span class="lang lang-gu">મામાનું ગામ: રામગઢ (ભુતડી)</span>
+                            </a>
+                        </p>
+                    </section>
+
+                    <!-- ADDRESSES -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <div class="section-title">
+                            <span class="lang lang-en">Addresses</span>
+                            <span class="lang lang-gu">સરનામાં</span>
+                        </div>
+
+                        <p class="address">
+                            <a href="https://maps.app.goo.gl/DgKQPEkke7opqeUh9" target="_blank"
+                                style="text-decoration:none;">
+                                <span class="lang lang-en">
+                                    A-402 Jay Ambe Residency,<br>
+                                    B/H Anand Vatika Residency, Sudama Chowk,<br>
+                                    Mota Varachha, Surat.
+                                </span>
+                                <span class="lang lang-gu">
+                                    એ-૪0૩ જય અંબે રેસીડેન્સી,<br>
+                                    આનંદ વાટિકા રેસીડેન્સી પાછળ, સુદામા ચોક,<br>
+                                    મોટાવરાછા, સુરત.
+                                </span>
+                            </a>
+                        </p>
+
+                    </section>
+
+                    <!-- MORE PHOTOS -->
+                    <section class="glass-section wow animate__animated animate__fadeInUp" data-wow-delay="0.45s">
+                        <div class="section-title photo-section-title">
+                            <span class="lang lang-en">More Photos</span>
+                            <span class="lang lang-gu">ફોટો</span>
+                        </div>
+
+                        <div class="photo-grid">
+                            <div class="photo-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczNz12b_kaHX5_5sA7tD6ttZ8U77AbHrI8_3FTjKTxLxUJwtn939fP1e0xVl92lVpl5yFSpMtXWctMIbcFlT9_1hBm3bP8LLg1fiCYkgKw1q2AmyUDfvQMCtVEbegmnJfEkPrJM8gANobVelEdiVUL0bHw=w651-h869-s-no-gm?authuser=0"
+                                    alt="Photo 1" onclick="openLightbox(this.src)">
+                                <!-- <span class="photo-tag">
+                                    <span class="lang lang-en">Portrait</span>
+                                    <span class="lang lang-gu">ફોટો ૧</span>
+                                </span> -->
+                            </div>
+
+                            <div class="photo-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPrZTgA5A0dlS8kW7rrPSgpP_fjebA-jIKwxW9at-RlwOch5ukm5cHPbCAdIy5NfR62qmgJtJ1wobf7ai5Az6atsChH52FrS3JvClLKINfmaDnNkZsJBt_Na8c17Fh_2uB9cUgoCqHZEoK0kAhOE7htBg=w651-h869-s-no-gm?authuser=0"
+                                    alt="Photo 2" onclick="openLightbox(this.src)">
+                                <!-- <span class="photo-tag">
+                                    <span class="lang lang-en">Casual</span>
+                                    <span class="lang lang-gu">ફોટો ૨</span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- FULLSCREEN LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full view">
+    </div>
+
+    <script>
+        new WOW().init();
+
+        // LANGUAGE TOGGLE
+        function toggleLanguage(checkbox) {
+            const isGujarati = checkbox.checked;
+            document.documentElement.setAttribute('data-lang', isGujarati ? 'gu' : 'en');
+            const title = document.getElementById('langTitle');
+            title.textContent = isGujarati ? 'ગુજરાતી' : 'English';
+        }
+
+        // LIGHTBOX + PINCH / WHEEL ZOOM
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        let scale = 1;
+        let lastScale = 1;
+        let startDistance = 0;
+
+        function openLightbox(src) {
+            scale = 1;
+            lastScale = 1;
+            startDistance = 0;
+            lightboxImg.src = src;
+            lightboxImg.style.transform = 'scale(1)';
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Touch pinch zoom
+        lightboxImg.addEventListener('touchstart', function (e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                startDistance = getDistance(e.touches[0], e.touches[1]);
+                lastScale = scale;
+            }
+        }, { passive: false });
+
+        lightboxImg.addEventListener('touchmove', function (e) {
+            if (e.touches.length === 2 && startDistance > 0) {
+                e.preventDefault();
+                const newDistance = getDistance(e.touches[0], e.touches[1]);
+                const factor = newDistance / startDistance;
+                scale = clamp(lastScale * factor, 1, 4);
+                lightboxImg.style.transform = `scale(${scale})`;
+            }
+        }, { passive: false });
+
+        lightboxImg.addEventListener('touchend', function (e) {
+            if (e.touches.length < 2) {
+                startDistance = 0;
+            }
+        });
+
+        function getDistance(t1, t2) {
+            const dx = t1.clientX - t2.clientX;
+            const dy = t1.clientY - t2.clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        // Mouse wheel zoom
+        lightboxImg.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            scale = clamp(scale + delta, 1, 4);
+            lightboxImg.style.transform = `scale(${scale})`;
+        });
+    </script>
+</body>
+
+</html>
